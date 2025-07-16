@@ -8,7 +8,7 @@ const router = express.Router();
 router.post('/apply', auth(['driver', 'user']), applyLeave);
 
 // Driver or User views their own leaves
-router.get('/my', auth(['driver', 'user']), getMyLeaves);
+// router.get('/my', auth(['driver', 'user']), getMyLeaves);
 
 // Admin and User views all leaves
 router.get('/', auth(['admin', 'user']), getAllLeaves);

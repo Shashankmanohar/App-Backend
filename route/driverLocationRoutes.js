@@ -10,6 +10,6 @@ router.post('/offline', authMiddleware(['driver']), driverLocationController.set
 
 // Admin routes
 router.get('/all', authMiddleware(['admin']), driverLocationController.getAllDriverLocations);
-router.get('/driver/:driverId', authMiddleware(['admin']), driverLocationController.getDriverLocation);
+// router.get('/driver/:driverId', authMiddleware(['admin']), driverLocationController.getDriverLocation);
 
 export default router; 

@@ -1,5 +1,5 @@
 import express from 'express';
-import { adminLogin, getAllAdmins } from '../controller/admincontroller.js';
+import { adminLogin, getAllAdmins, getTotalUsers, getTotalDrivers, getTodaysAttendance } from '../controller/admincontroller.js';
 import { registerUser, getAllUsers, deleteUser } from '../controller/usercontroller.js';
 import { registerDriver, getAllDrivers, deleteDriver } from '../controller/drivercontroller.js';
 import authMiddleware from '../middleware/auth.js';
@@ -14,7 +14,10 @@ router.get('/profile', authMiddleware(['admin']), (req, res) => {
     res.json({ message: 'Admin profile accessed', user: req.user });
 });
 
-router.get('/all-admins', authMiddleware(['admin']), getAllAdmins);
+// Add new endpoints for real-time stats
+// router.get('/total-users', authMiddleware(['admin']), getTotalUsers);
+// router.get('/total-drivers', authMiddleware(['admin']), getTotalDrivers);
+// router.get('/todays-attendance', authMiddleware(['admin']), getTodaysAttendance);
 
 // Admin can register users and drivers
 router.post('/register-user', authMiddleware(['admin']), registerUser);

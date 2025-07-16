@@ -18,6 +18,6 @@ router.get('/:accommodationId', authMiddleware(['user', 'admin']), accommodation
 // Admin routes (require admin authentication)
 router.get('/admin/all', authMiddleware(['admin']), accommodationController.getAllAccommodations);
 router.put('/admin/:accommodationId', authMiddleware(['admin']), accommodationController.updateAccommodation);
-router.delete('/admin/:accommodationId', authMiddleware(['admin']), accommodationController.deleteAccommodation);
+// router.delete('/admin/:accommodationId', authMiddleware(['admin']), accommodationController.deleteAccommodation);
 
 export default router; 
