@@ -15,9 +15,9 @@ router.get('/profile', authMiddleware(['admin']), (req, res) => {
 });
 
 // Add new endpoints for real-time stats
-// router.get('/total-users', authMiddleware(['admin']), getTotalUsers);
-// router.get('/total-drivers', authMiddleware(['admin']), getTotalDrivers);
-// router.get('/todays-attendance', authMiddleware(['admin']), getTodaysAttendance);
+router.get('/total-users', authMiddleware(['admin']), getTotalUsers);
+router.get('/total-drivers', authMiddleware(['admin']), getTotalDrivers);
+router.get('/todays-attendance', authMiddleware(['admin']), getTodaysAttendance);
 
 // Admin can register users and drivers
 router.post('/register-user', authMiddleware(['admin']), registerUser);

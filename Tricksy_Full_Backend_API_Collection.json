@@ -1,0 +1,438 @@
+{
+  "info": {
+    "name": "Tricksy Full Backend API",
+    "description": "Comprehensive API collection for all Tricksy backend endpoints (active and disabled). Disabled endpoints are marked as DISABLED.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Admin Routes",
+      "item": [
+        {
+          "name": "Admin Login",
+          "request": {
+            "method": "POST",
+            "header": [ { "key": "Content-Type", "value": "application/json" } ],
+            "url": { "raw": "{{base_url}}/api/admin/login", "host": ["{{base_url}}"], "path": ["api", "admin", "login"] },
+            "body": { "mode": "raw", "raw": "{\n  \"email\": \"admin@test.com\",\n  \"password\": \"Test@123\"\n}" }
+          }
+        },
+        {
+          "name": "Admin Profile",
+          "request": {
+            "method": "GET",
+            "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ],
+            "url": { "raw": "{{base_url}}/api/admin/profile", "host": ["{{base_url}}"], "path": ["api", "admin", "profile"] }
+          }
+        },
+        {
+          "name": "DISABLED: Get Total Users",
+          "request": {
+            "method": "GET",
+            "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ],
+            "url": { "raw": "{{base_url}}/api/admin/total-users", "host": ["{{base_url}}"], "path": ["api", "admin", "total-users"] }
+          }
+        },
+        {
+          "name": "DISABLED: Get Total Drivers",
+          "request": {
+            "method": "GET",
+            "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ],
+            "url": { "raw": "{{base_url}}/api/admin/total-drivers", "host": ["{{base_url}}"], "path": ["api", "admin", "total-drivers"] }
+          }
+        },
+        {
+          "name": "DISABLED: Get Today's Attendance",
+          "request": {
+            "method": "GET",
+            "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ],
+            "url": { "raw": "{{base_url}}/api/admin/todays-attendance", "host": ["{{base_url}}"], "path": ["api", "admin", "todays-attendance"] }
+          }
+        },
+        {
+          "name": "Register User",
+          "request": {
+            "method": "POST",
+            "header": [ { "key": "Authorization", "value": "Bearer {{token}}" }, { "key": "Content-Type", "value": "application/json" } ],
+            "url": { "raw": "{{base_url}}/api/admin/register-user", "host": ["{{base_url}}"], "path": ["api", "admin", "register-user"] },
+            "body": { "mode": "raw", "raw": "{\n  \"name\": \"Test User\",\n  \"email\": \"user@test.com\",\n  \"phone\": \"1234567890\",\n  \"address\": \"Test Address\",\n  \"password\": \"Test@123\"\n}" }
+          }
+        },
+        {
+          "name": "Register Driver",
+          "request": {
+            "method": "POST",
+            "header": [ { "key": "Authorization", "value": "Bearer {{token}}" }, { "key": "Content-Type", "value": "application/json" } ],
+            "url": { "raw": "{{base_url}}/api/admin/register-driver", "host": ["{{base_url}}"], "path": ["api", "admin", "register-driver"] },
+            "body": { "mode": "raw", "raw": "{\n  \"name\": \"Test Driver\",\n  \"email\": \"driver@test.com\",\n  \"phone\": \"1234567890\",\n  \"address\": \"Test Address\",\n  \"password\": \"Test@123\",\n  \"busNumber\": \"BUS001\"\n}" }
+          }
+        },
+        {
+          "name": "Get All Users",
+          "request": {
+            "method": "GET",
+            "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ],
+            "url": { "raw": "{{base_url}}/api/admin/all-users", "host": ["{{base_url}}"], "path": ["api", "admin", "all-users"] }
+          }
+        },
+        {
+          "name": "Get All Drivers",
+          "request": {
+            "method": "GET",
+            "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ],
+            "url": { "raw": "{{base_url}}/api/admin/all-drivers", "host": ["{{base_url}}"], "path": ["api", "admin", "all-drivers"] }
+          }
+        },
+        {
+          "name": "Delete User",
+          "request": {
+            "method": "DELETE",
+            "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ],
+            "url": { "raw": "{{base_url}}/api/admin/user/:userId", "host": ["{{base_url}}"], "path": ["api", "admin", "user", ":userId"], "variable": [ { "key": "userId", "value": "user_id_here" } ] }
+          }
+        },
+        {
+          "name": "Delete Driver",
+          "request": {
+            "method": "DELETE",
+            "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ],
+            "url": { "raw": "{{base_url}}/api/admin/driver/:driverId", "host": ["{{base_url}}"], "path": ["api", "admin", "driver", ":driverId"], "variable": [ { "key": "driverId", "value": "driver_id_here" } ] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "User Routes",
+      "item": [
+        {
+          "name": "User Login",
+          "request": {
+            "method": "POST",
+            "header": [ { "key": "Content-Type", "value": "application/json" } ],
+            "url": { "raw": "{{base_url}}/api/user/login", "host": ["{{base_url}}"], "path": ["api", "user", "login"] },
+            "body": { "mode": "raw", "raw": "{\n  \"email\": \"user@test.com\",\n  \"password\": \"Test@123\"\n}" }
+          }
+        },
+        {
+          "name": "Get User Profile",
+          "request": {
+            "method": "GET",
+            "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ],
+            "url": { "raw": "{{base_url}}/api/user/profile", "host": ["{{base_url}}"], "path": ["api", "user", "profile"] }
+          }
+        },
+        {
+          "name": "Update User Profile",
+          "request": {
+            "method": "PATCH",
+            "header": [ { "key": "Authorization", "value": "Bearer {{token}}" }, { "key": "Content-Type", "value": "application/json" } ],
+            "url": { "raw": "{{base_url}}/api/user/profile", "host": ["{{base_url}}"], "path": ["api", "user", "profile"] },
+            "body": { "mode": "raw", "raw": "{\n  \"name\": \"Updated Name\",\n  \"email\": \"updated@test.com\",\n  \"phone\": \"9876543210\",\n  \"address\": \"New Address\"\n}" }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Driver Routes",
+      "item": [
+        {
+          "name": "Driver Login",
+          "request": {
+            "method": "POST",
+            "header": [ { "key": "Content-Type", "value": "application/json" } ],
+            "url": { "raw": "{{base_url}}/api/driver/login", "host": ["{{base_url}}"], "path": ["api", "driver", "login"] },
+            "body": { "mode": "raw", "raw": "{\n  \"email\": \"driver@test.com\",\n  \"password\": \"Test@123\"\n}" }
+          }
+        },
+        {
+          "name": "Get Driver Profile",
+          "request": {
+            "method": "GET",
+            "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ],
+            "url": { "raw": "{{base_url}}/api/driver/profile", "host": ["{{base_url}}"], "path": ["api", "driver", "profile"] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Accommodation Routes",
+      "item": [
+        {
+          "name": "Create Accommodation Request",
+          "request": {
+            "method": "POST",
+            "header": [ { "key": "Authorization", "value": "Bearer {{token}}" }, { "key": "Content-Type", "value": "multipart/form-data" } ],
+            "url": { "raw": "{{base_url}}/api/accommodation/create", "host": ["{{base_url}}"], "path": ["api", "accommodation", "create"] },
+            "body": { "mode": "formdata", "formdata": [ { "key": "title", "value": "Test Accommodation", "type": "text" }, { "key": "message", "value": "Need accommodation for 2 days", "type": "text" }, { "key": "images", "type": "file", "src": "/path/to/image.jpg" }, { "key": "videos", "type": "file", "src": "/path/to/video.mp4" } ] }
+          }
+        },
+        {
+          "name": "Get User Accommodations",
+          "request": {
+            "method": "GET",
+            "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ],
+            "url": { "raw": "{{base_url}}/api/accommodation/user", "host": ["{{base_url}}"], "path": ["api", "accommodation", "user"] }
+          }
+        },
+        {
+          "name": "Get Accommodation by ID",
+          "request": {
+            "method": "GET",
+            "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ],
+            "url": { "raw": "{{base_url}}/api/accommodation/:accommodationId", "host": ["{{base_url}}"], "path": ["api", "accommodation", ":accommodationId"], "variable": [ { "key": "accommodationId", "value": "accommodation_id_here" } ] }
+          }
+        },
+        {
+          "name": "Get All Accommodations (Admin)",
+          "request": {
+            "method": "GET",
+            "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ],
+            "url": { "raw": "{{base_url}}/api/accommodation/admin/all", "host": ["{{base_url}}"], "path": ["api", "accommodation", "admin", "all"] }
+          }
+        },
+        {
+          "name": "Update Accommodation (Admin)",
+          "request": {
+            "method": "PUT",
+            "header": [ { "key": "Authorization", "value": "Bearer {{token}}" }, { "key": "Content-Type", "value": "application/json" } ],
+            "url": { "raw": "{{base_url}}/api/accommodation/admin/:accommodationId", "host": ["{{base_url}}"], "path": ["api", "accommodation", "admin", ":accommodationId"], "variable": [ { "key": "accommodationId", "value": "accommodation_id_here" } ] },
+            "body": { "mode": "raw", "raw": "{\n  \"status\": \"approved\",\n  \"adminResponse\": \"Approved for 2 days\"\n}" }
+          }
+        },
+        {
+          "name": "DISABLED: Delete Accommodation (Admin)",
+          "request": {
+            "method": "DELETE",
+            "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ],
+            "url": { "raw": "{{base_url}}/api/accommodation/admin/:accommodationId", "host": ["{{base_url}}"], "path": ["api", "accommodation", "admin", ":accommodationId"], "variable": [ { "key": "accommodationId", "value": "accommodation_id_here" } ] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Attendance Routes",
+      "item": [
+        {
+          "name": "Mark Attendance",
+          "request": {
+            "method": "POST",
+            "header": [ { "key": "Authorization", "value": "Bearer {{token}}" }, { "key": "Content-Type", "value": "application/json" } ],
+            "url": { "raw": "{{base_url}}/api/attendance/mark", "host": ["{{base_url}}"], "path": ["api", "attendance", "mark"] },
+            "body": { "mode": "raw", "raw": "{\n  \"status\": \"present\"\n}" }
+          }
+        },
+        {
+          "name": "DISABLED: Checkout Attendance",
+          "request": {
+            "method": "POST",
+            "header": [ { "key": "Authorization", "value": "Bearer {{token}}" }, { "key": "Content-Type", "value": "application/json" } ],
+            "url": { "raw": "{{base_url}}/api/attendance/checkout", "host": ["{{base_url}}"], "path": ["api", "attendance", "checkout"] },
+            "body": { "mode": "raw", "raw": "{\n  \"status\": \"checkout\"\n}" }
+          }
+        },
+        {
+          "name": "Get User Attendance",
+          "request": {
+            "method": "GET",
+            "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ],
+            "url": { "raw": "{{base_url}}/api/attendance/user", "host": ["{{base_url}}"], "path": ["api", "attendance", "user"] }
+          }
+        },
+        {
+          "name": "Get All Attendance (Admin)",
+          "request": {
+            "method": "GET",
+            "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ],
+            "url": { "raw": "{{base_url}}/api/attendance/admin/all", "host": ["{{base_url}}"], "path": ["api", "attendance", "admin", "all"] }
+          }
+        },
+        {
+          "name": "DISABLED: Update Attendance Status (Admin)",
+          "request": {
+            "method": "PUT",
+            "header": [ { "key": "Authorization", "value": "Bearer {{token}}" }, { "key": "Content-Type", "value": "application/json" } ],
+            "url": { "raw": "{{base_url}}/api/attendance/admin/:attendanceId", "host": ["{{base_url}}"], "path": ["api", "attendance", "admin", ":attendanceId"], "variable": [ { "key": "attendanceId", "value": "attendance_id_here" } ] },
+            "body": { "mode": "raw", "raw": "{\n  \"status\": \"approved\"\n}" }
+          }
+        },
+        {
+          "name": "DISABLED: Get Attendance Stats (Admin)",
+          "request": {
+            "method": "GET",
+            "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ],
+            "url": { "raw": "{{base_url}}/api/attendance/admin/stats", "host": ["{{base_url}}"], "path": ["api", "attendance", "admin", "stats"] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Leave Routes",
+      "item": [
+        {
+          "name": "Apply for Leave",
+          "request": {
+            "method": "POST",
+            "header": [ { "key": "Authorization", "value": "Bearer {{token}}" }, { "key": "Content-Type", "value": "application/json" } ],
+            "url": { "raw": "{{base_url}}/api/leaves/apply", "host": ["{{base_url}}"], "path": ["api", "leaves", "apply"] },
+            "body": { "mode": "raw", "raw": "{\n  \"startDate\": \"2024-07-01\",\n  \"endDate\": \"2024-07-03\",\n  \"reason\": \"Personal\"\n}" }
+          }
+        },
+        {
+          "name": "DISABLED: Get My Leaves",
+          "request": {
+            "method": "GET",
+            "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ],
+            "url": { "raw": "{{base_url}}/api/leaves/my", "host": ["{{base_url}}"], "path": ["api", "leaves", "my"] }
+          }
+        },
+        {
+          "name": "Get All Leaves (Admin/User)",
+          "request": {
+            "method": "GET",
+            "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ],
+            "url": { "raw": "{{base_url}}/api/leaves/", "host": ["{{base_url}}"], "path": ["api", "leaves", ""] }
+          }
+        },
+        {
+          "name": "Update Leave Status (Admin)",
+          "request": {
+            "method": "PATCH",
+            "header": [ { "key": "Authorization", "value": "Bearer {{token}}" }, { "key": "Content-Type", "value": "application/json" } ],
+            "url": { "raw": "{{base_url}}/api/leaves/:id/status", "host": ["{{base_url}}"], "path": ["api", "leaves", ":id", "status"], "variable": [ { "key": "id", "value": "leave_id_here" } ] },
+            "body": { "mode": "raw", "raw": "{\n  \"status\": \"approved\",\n  \"adminResponse\": \"Approved\"\n}" }
+          }
+        },
+        {
+          "name": "Get Leaves by Status",
+          "request": {
+            "method": "GET",
+            "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ],
+            "url": { "raw": "{{base_url}}/api/leaves/status/:status", "host": ["{{base_url}}"], "path": ["api", "leaves", "status", ":status"], "variable": [ { "key": "status", "value": "pending" } ] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Driver Location Routes",
+      "item": [
+        {
+          "name": "Update Driver Location (Driver)",
+          "request": {
+            "method": "POST",
+            "header": [ { "key": "Authorization", "value": "Bearer {{token}}" }, { "key": "Content-Type", "value": "application/json" } ],
+            "url": { "raw": "{{base_url}}/api/driver-location/update", "host": ["{{base_url}}"], "path": ["api", "driver-location", "update"] },
+            "body": { "mode": "raw", "raw": "{\n  \"latitude\": 12.9716,\n  \"longitude\": 77.5946,\n  \"accuracy\": 10,\n  \"speed\": 0,\n  \"heading\": 0\n}" }
+          }
+        },
+        {
+          "name": "Set Driver Offline (Driver)",
+          "request": {
+            "method": "POST",
+            "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ],
+            "url": { "raw": "{{base_url}}/api/driver-location/offline", "host": ["{{base_url}}"], "path": ["api", "driver-location", "offline"] }
+          }
+        },
+        {
+          "name": "Get All Driver Locations (Admin)",
+          "request": {
+            "method": "GET",
+            "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ],
+            "url": { "raw": "{{base_url}}/api/driver-location/all", "host": ["{{base_url}}"], "path": ["api", "driver-location", "all"] }
+          }
+        },
+        {
+          "name": "DISABLED: Get Driver Location by ID (Admin)",
+          "request": {
+            "method": "GET",
+            "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ],
+            "url": { "raw": "{{base_url}}/api/driver-location/driver/:driverId", "host": ["{{base_url}}"], "path": ["api", "driver-location", "driver", ":driverId"], "variable": [ { "key": "driverId", "value": "driver_id_here" } ] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Driver Assignment Routes",
+      "item": [
+        {
+          "name": "DISABLED: Test Endpoint",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{base_url}}/api/driver-assignment/test", "host": ["{{base_url}}"], "path": ["api", "driver-assignment", "test"] }
+          }
+        },
+        {
+          "name": "DISABLED: Assign Driver to Users (Admin)",
+          "request": {
+            "method": "POST",
+            "header": [ { "key": "Authorization", "value": "Bearer {{token}}" }, { "key": "Content-Type", "value": "application/json" } ],
+            "url": { "raw": "{{base_url}}/api/driver-assignment/assign", "host": ["{{base_url}}"], "path": ["api", "driver-assignment", "assign"] },
+            "body": { "mode": "raw", "raw": "{\n  \"driverId\": \"driver_id_here\",\n  \"userIds\": [\"user_id_1\", \"user_id_2\"]\n}" }
+          }
+        },
+        {
+          "name": "Get All Driver Assignments (Admin)",
+          "request": {
+            "method": "GET",
+            "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ],
+            "url": { "raw": "{{base_url}}/api/driver-assignment/all", "host": ["{{base_url}}"], "path": ["api", "driver-assignment", "all"] }
+          }
+        },
+        {
+          "name": "DISABLED: Update Assignment Status (Admin)",
+          "request": {
+            "method": "PATCH",
+            "header": [ { "key": "Authorization", "value": "Bearer {{token}}" }, { "key": "Content-Type", "value": "application/json" } ],
+            "url": { "raw": "{{base_url}}/api/driver-assignment/:assignmentId/status", "host": ["{{base_url}}"], "path": ["api", "driver-assignment", ":assignmentId", "status"], "variable": [ { "key": "assignmentId", "value": "assignment_id_here" } ] },
+            "body": { "mode": "raw", "raw": "{\n  \"status\": \"completed\"\n}" }
+          }
+        },
+        {
+          "name": "DISABLED: Delete Assignment (Admin)",
+          "request": {
+            "method": "DELETE",
+            "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ],
+            "url": { "raw": "{{base_url}}/api/driver-assignment/:assignmentId", "host": ["{{base_url}}"], "path": ["api", "driver-assignment", ":assignmentId"], "variable": [ { "key": "assignmentId", "value": "assignment_id_here" } ] }
+          }
+        },
+        {
+          "name": "Get Driver Assignments (Driver)",
+          "request": {
+            "method": "GET",
+            "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ],
+            "url": { "raw": "{{base_url}}/api/driver-assignment/driver/:driverId", "host": ["{{base_url}}"], "path": ["api", "driver-assignment", "driver", ":driverId"], "variable": [ { "key": "driverId", "value": "driver_id_here" } ] }
+          }
+        },
+        {
+          "name": "DISABLED: Update User Status (Driver)",
+          "request": {
+            "method": "PATCH",
+            "header": [ { "key": "Authorization", "value": "Bearer {{token}}" }, { "key": "Content-Type", "value": "application/json" } ],
+            "url": { "raw": "{{base_url}}/api/driver-assignment/:assignmentId/user-status", "host": ["{{base_url}}"], "path": ["api", "driver-assignment", ":assignmentId", "user-status"], "variable": [ { "key": "assignmentId", "value": "assignment_id_here" } ] },
+            "body": { "mode": "raw", "raw": "{\n  \"status\": \"completed\"\n}" }
+          }
+        },
+        {
+          "name": "DISABLED: Get User Assignment (User)",
+          "request": {
+            "method": "GET",
+            "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ],
+            "url": { "raw": "{{base_url}}/api/driver-assignment/user", "host": ["{{base_url}}"], "path": ["api", "driver-assignment", "user"] }
+          }
+        },
+        {
+          "name": "DISABLED: Get User Assigned Driver Location (User)",
+          "request": {
+            "method": "GET",
+            "header": [ { "key": "Authorization", "value": "Bearer {{token}}" } ],
+            "url": { "raw": "{{base_url}}/api/driver-assignment/user/driver-location", "host": ["{{base_url}}"], "path": ["api", "driver-assignment", "user", "driver-location"] }
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    { "key": "base_url", "value": "http://localhost:4002" },
+    { "key": "token", "value": "your_jwt_token_here" }
+  ]
+} 
